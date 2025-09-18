@@ -1,0 +1,1933 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 7,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "bew90a82pgetce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 10
+              },
+              {
+                "color": "#EF843C",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "bew90a82pgetce"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(o.vn) as \"จำนวนคนไข้ทั้งหมด \" FROM \r\novst o\r\nWHERE   o.vstdate between $__timeFrom() and $__timeTo()  \r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "จำนวน คนไข้นอก วันนี้",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "bew90a82pgetce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 10
+              },
+              {
+                "color": "#EF843C",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 0
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "bew90a82pgetce"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  COUNT(DISTINCT d.vn) AS \"วินิจฉัย\",\r\n  COUNT(DISTINCT o.vn) - COUNT(DISTINCT d.vn) AS \"ยังไม่ได้วินิจฉัย\"\r\nFROM ovst o\r\nLEFT JOIN ovstdiag d ON d.vn = o.vn AND d.diagtype = '1'\r\nWHERE\r\n  o.vstdate BETWEEN $__timeFrom() AND $__timeTo();",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "จำนวน คนไข้นอก วันนี้",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 9,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<img src='https://ssdpcu.com/images/haisok_logo.jpg' width=\"150\" height=\"150\"'>\n\n",
+        "mode": "html"
+      },
+      "pluginVersion": "12.1.1",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 12,
+        "y": 0
+      },
+      "id": 12,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(*) as ccc FROM vn_stat WHERE vstdate between $__timeFrom() and $__timeTo()  \r\nAND pttype in (SELECT pttype FROM pttype WHERE hipdata_code in('UCS','WEL'));",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "สิทธิ์ 30 บาท",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 14,
+        "y": 0
+      },
+      "id": 17,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(*) as ccc FROM vn_stat WHERE vstdate between $__timeFrom() and $__timeTo()  \r\nAND pttype in (SELECT pttype FROM pttype WHERE pttype in('O1','O2','O3','O4','O7'));",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "สิทธิ์เบิกกรมบัชีกลาง",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 17,
+        "y": 0
+      },
+      "id": 20,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(*) as ccc FROM vn_stat WHERE vstdate between $__timeFrom() and $__timeTo()  \r\nAND pttype in (SELECT pttype FROM pttype WHERE pcode in('A7'));",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "สิทธิ์ิประกันสังคม",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 20,
+        "y": 0
+      },
+      "id": 21,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(*) as ccc FROM vn_stat WHERE vstdate between $__timeFrom() and $__timeTo()  \r\nAND pttype in (SELECT pttype FROM pttype WHERE pttype in('L1','L2','L3','L4','L5'));",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "สิทธิ์ิอื่นๆ +อปท",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "mode": "lcd",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ยาสมุนไพร"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนคน"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 89
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนครั้ง"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 95
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ส่งเคลมแล้ว"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 85
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 9,
+        "x": 0,
+        "y": 3
+      },
+      "id": 5,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT * FROM (\r\n SELECT\r\n COALESCE(\r\n CASE\r\n WHEN d.sks_drug_code IN ('9372629','9415240','9429256') THEN 'ยาแก้ไอมะขามป้อม'\r\n WHEN d.sks_drug_code IN ('9411015') THEN 'เถาวัลย์เปรียง'\r\n WHEN d.sks_drug_code IN ('9093729','9025742') THEN 'ขมิ้นชัน'\r\n WHEN d.sks_drug_code IN ('9411036','9401800') THEN 'ฟ้าทะลายโจร'\r\n WHEN d.sks_drug_code IN ('9429273') THEN 'ลูกประคบ'\r\n WHEN d.sks_drug_code IN ('9423623') THEN 'กลีเซอรีนพญายอ'\r\n WHEN d.sks_drug_code IN ('9411275') THEN 'เพชรสังฆาต'\r\n WHEN d.sks_drug_code IN ('9386723','9025735') THEN 'กล้วย'\r\n WHEN d.sks_drug_code IN ('9098156') THEN 'เจลว่านหางจรเข้'\r\n END, 'รวมทั้งหมด'\r\n ) AS `ยาสมุนไพร`,\r\n COUNT(DISTINCT o.hn) AS `จำนวนคน`,\r\n COUNT(op.icode) AS `จำนวนครั้ง`,\r\nCOALESCE(SUM(CASE WHEN e.upload_status_code IS NOT NULL THEN 1 ELSE 0 END), 0) AS \"ส่งเคลมแล้ว\",\r\n FORMAT(SUM(\r\n CASE\r\n WHEN d.sks_drug_code IN ('9372629','9415240','9429256') THEN 84\r\n WHEN d.sks_drug_code IN ('9411015') THEN 60\r\n WHEN d.sks_drug_code IN ('9093729','9025742') THEN 56\r\n WHEN d.sks_drug_code IN ('9411036','9401800') THEN 92\r\n WHEN d.sks_drug_code IN ('9429273') THEN 100\r\n WHEN d.sks_drug_code IN ('9423623') THEN 33\r\n WHEN d.sks_drug_code IN ('9411275') THEN 204\r\n WHEN d.sks_drug_code IN ('9386723','9025735') THEN 32.5\r\n WHEN d.sks_drug_code IN ('9098156') THEN 53\r\n ELSE 0\r\n END\r\n ), 2) AS `ประมาณการรายได้`\r\n FROM ovst o\r\n LEFT JOIN opitemrece op ON op.vn = o.vn AND op.vstdate = o.vstdate\r\n LEFT JOIN drugitems d ON d.icode = op.icode\r\nLEFT JOIN pttype p ON p.pttype = o.pttype\r\n LEFT JOIN ovst_eclaim e ON e.vn = o.vn\r\n WHERE\r\no.vstdate BETWEEN $__timeFrom() AND $__timeTo()\r\nAND d.sks_drug_code IN ('9372629','9415240','9429256','9411015','9093729','9025742','9411036','9401800','9429273','9423623','9411275','9386723','9025735','9098156')\r\n AND p.hipdata_code IN ('WEL', 'UCS')\r\n GROUP BY\r\n d.sks_drug_code WITH ROLLUP\r\n) AS subquery_rollup\r\nORDER BY\r\n CASE WHEN `ยาสมุนไพร` = 'รวมทั้งหมด' THEN 1 ELSE 0 END, `ยาสมุนไพร`;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้ยาสมุนไพรวันนี้",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "จำนวนคนไข้"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "gauge",
+              "valueDisplayMode": "text"
+            },
+            "filterable": false,
+            "inspect": false,
+            "width": 100
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 10
+              },
+              {
+                "color": "#EF843C",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 16,
+        "y": 4
+      },
+      "id": 15,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "เคลมแล้ว"
+          }
+        ]
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    COALESCE(COUNT(v.vn), 0) AS \"จำนวน\",\r\n    COALESCE(SUM(CASE WHEN r.sss_approval_code IS NOT NULL THEN 1 ELSE 0 END), 0) AS \"รูดบัตรแล้ว\",\r\n    COALESCE(SUM(CASE WHEN r.sss_approval_code IS NULL THEN 1 ELSE 0 END), 0) AS \"ยังไม่รูดบัตร\",\r\n    COALESCE(SUM(CASE WHEN e.upload_status_code IS NOT NULL THEN 1 ELSE 0 END), 0) AS \"เคลมแล้ว\"\r\nFROM vn_stat v\r\nLEFT JOIN rcpt_debt r ON r.vn = v.vn\r\nLEFT JOIN ovst_eclaim e ON e.vn = v.vn\r\nWHERE\r\n    v.vstdate BETWEEN $__timeFrom() AND $__timeTo()\r\n    AND v.pttype IN ('O1', 'O2', 'O3', 'O4', 'O5', 'O7');",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "EDCกรมบัญชีกลาง",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 10,
+        "y": 5
+      },
+      "id": 22,
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "text": {
+          "valueSize": 40
+        },
+        "valueMode": "color"
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  COUNT(v.auth_code) AS \"จำนวน auth code\"\r\nFROM vn_stat o\r\nLEFT JOIN visit_pttype v ON v.vn = o.vn\r\nWHERE\r\n  o.vstdate BETWEEN $__timeFrom() AND $__timeTo();\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ปิดสิทธิ์โดยบัตร สำเร็จ",
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "align": "right",
+            "cellOptions": {
+              "mode": "lcd",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              },
+              {
+                "color": "green",
+                "value": 100
+              },
+              {
+                "color": "#EF843C",
+                "value": 110
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 9,
+        "y": 8
+      },
+      "id": 31,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "ประมาณการรายได้"
+          }
+        ]
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    CAST(CONVERT(pt.fname USING utf8) AS BINARY) AS \"ชื่อ\",\r\n    vp.auth_code AS authencode\r\nFROM ovst o\r\nLEFT JOIN vn_stat v ON v.vn = o.vn\r\nLEFT JOIN visit_pttype vp ON vp.vn = o.vn\r\nLEFT JOIN patient pt ON pt.hn = o.hn\r\nLEFT JOIN pttype t ON t.pttype = o.pttype\r\nWHERE  t.pttype IN ('01','03','07','11','13','14','16','17','21','22','32','33','38','39','40','41','43','44','45','46','50','59') AND o.vstdate BETWEEN $__timeFrom() AND $__timeTo()\r\nGROUP BY\r\n    o.vn;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ผู้ได้รับ สิทธิwalik in",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "จำนวนคนไข้"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "align": "right",
+            "cellOptions": {
+              "mode": "lcd",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "inspect": false,
+            "width": 130
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนคน"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 76
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนครั้ง"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 85
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "เคลมแล้ว"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 89
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 7,
+        "x": 16,
+        "y": 8
+      },
+      "id": 26,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    CASE\r\n        WHEN v.pttype IN ('O1','O2','O3','O4') THEN 'สิทธิจ่ายตรง'\r\n        WHEN v.pttype IN ('L1','L2','L3','L4','L5','L6','L9') THEN 'สิทธิ อปท.'\r\n        WHEN v.pttype IN ('S1','S2','S3','S4','S5','S6','S7','S8','15') THEN 'ปกส.ในจังหวัด'\r\n        WHEN v.pttype IN ('36') THEN 'ปกส.นอกจังหวัด'\r\n        WHEN v.pttype IN ('Z2') THEN 'สิทธิ พรบ.'\r\n        WHEN v.pttype IN ('Z5') THEN 'ปกส.ทันตกรรม.'\r\n        WHEN v.pttype IN ('01','03','07','11','13','14','16','17','21','22','32','33',\r\n        '38','39','40','41','43','44','45','46','50','59') THEN 'สิทธิ Walk in'\r\n        WHEN v.pttype IN ('E1','E3','E4','G1','G2','G3','G4','G5','G6','C1','C2','C3',\r\n        'C4','C5','C6','B0','B1','B2','B3','B4','B5','B6','B7','B8','A0','A1','A2','A3',\r\n        'A4','A5','A6','A7','A8','A9','P1','P2','P3','PB','PO','PV','P5','SB','SF','ST','Z1','00') THEN 'ชำระเงินเองเบิกได้'\r\n    END AS `สิทธิ`,\r\n    COUNT(DISTINCT v.hn) AS `จำนวนคน`,\r\n    COUNT(v.vn) AS `จำนวนครั้ง`,\r\n    COALESCE(SUM(CASE WHEN o.upload_status_code IS NOT NULL THEN 1 ELSE 0 END), 0) AS `เคลมแล้ว`,\r\n    FORMAT(\r\n        SUM(\r\n            CASE\r\n                WHEN v.pttype IN ('01','03','07','11','13','14','16','17','21','22','32',\r\n                '33','38','39','40','41','43','44','45','46','50','59') THEN 70\r\n                ELSE v.income\r\n            END\r\n        ), 2\r\n    ) AS `รายได้`\r\nFROM vn_stat v\r\nLEFT JOIN rcpt_debt  r  ON r.vn = v.vn\r\nLEFT JOIN  ovst_eclaim o  ON o.vn = v.vn\r\nWHERE\r\n    v.vstdate BETWEEN $__timeFrom() AND $__timeTo()\r\n    AND v.pttype IN ('O1','O2','O3','O4','L1','L2','L3','L4','L5','L6','L9','S1','S2','S3',\r\n    'S4','S5','S6','S7','S8','15','36','Z2','01','03','07','11','13','14','16','17','21',\r\n    '22','32','33','38','39','40','41','43','44','45','46','50','59','E1','E3','E4','G1',\r\n    'G2','G3','G4','G5','G6','C1','C2','C3','C4','C5','C6','B0','B1','B2','B3','B4','B5',\r\n    'B6','B7','B8','A0','A1','A2','A3','A4','A5','A6','A7','A8','A9','P1','P2','P3','PB',\r\n    'PO','PV','P5','SB','SF','ST','Z1','Z5','00')\r\nGROUP BY\r\n    `สิทธิ`\r\n\r\nUNION ALL\r\n\r\nSELECT\r\n    'รวมทั้งหมด' AS `สิทธิ`,\r\n    COUNT(DISTINCT v.hn) AS `จำนวนคน`,\r\n    COUNT(v.vn) AS `จำนวนครั้ง`,\r\n    COALESCE(SUM(CASE WHEN o.upload_status_code IS NOT NULL THEN 1 ELSE 0 END), 0) AS `เคลมแล้ว`,\r\n    FORMAT(SUM(\r\n        CASE\r\n            WHEN v.pttype IN ('01','03','07','11','13','14','16','17','21','22','32',\r\n            '33','38','39','40','41','43','44','45','46','50','59') THEN 70\r\n            ELSE v.income\r\n        END\r\n    ), 2) AS `รายได้`\r\nFROM vn_stat v\r\nLEFT JOIN rcpt_debt  r  ON r.vn = v.vn\r\nLEFT JOIN  ovst_eclaim o  ON o.vn = v.vn\r\nWHERE\r\n    v.vstdate BETWEEN $__timeFrom() AND $__timeTo()\r\n    AND v.pttype IN ('O1','O2','O3','O4','L1','L2','L3','L4','L5','L6','L9',\r\n    'S1','S2','S3','S4','S5','S6','S7','S8','15','36','Z2','01','03','07',\r\n    '11','13','14','16','17','21','22','32','33','38','39','40','41',\r\n    '43','44','45','46','50','59','E1','E3','E4','G1','G2','G3','G4','G5','G6',\r\n    'C1','C2','C3','C4','C5','C6','B0','B1','B2','B3','B4','B5','B6','B7','B8',\r\n    'A0','A1','A2','A3','A4','A5','A6','A7','A8','A9','P1','P2','P3','PB','PO',\r\n    'PV','P5','SB','SF','ST','Z1','Z5','00');",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้ตามสิทธิผู้ป่วยวันนี้",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "จำนวนคนไข้"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "align": "right",
+            "cellOptions": {
+              "mode": "lcd",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              },
+              {
+                "color": "green",
+                "value": 100
+              },
+              {
+                "color": "#EF843C",
+                "value": 110
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 10
+      },
+      "id": 27,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "ประมาณการรายได้"
+          }
+        ]
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    CAST(CONVERT(pt.fname USING utf8) AS BINARY) AS \"ชื่อ\",\r\n    vp.auth_code AS authencode,\r\n    GROUP_CONCAT(\r\n        DISTINCT CONCAT_WS('#', ed.TMTID) \r\n        ORDER BY d.nhso_adp_code, d.icode\r\n    ) AS drugname\r\nFROM ovst o\r\nLEFT JOIN vn_stat v ON v.vn = o.vn\r\nLEFT JOIN visit_pttype vp ON vp.vn = o.vn\r\nLEFT JOIN patient pt ON pt.hn = o.hn\r\nLEFT JOIN pttype t ON t.pttype = o.pttype\r\nJOIN opitemrece oo ON oo.vn = o.vn AND oo.paidst = '02' AND oo.qty > 0\r\nJOIN s_drugitems d ON d.icode = oo.icode\r\nJOIN drugitems dg ON dg.icode = oo.icode\r\nLEFT JOIN rcmdb.eclaim_drugcatalog ed ON ed.HospDrugCode = dg.icode\r\nWHERE\r\n    o.vstdate BETWEEN $__timeFrom() AND $__timeTo()\r\n    AND t.hipdata_code IN ('UCS', 'WEL')\r\n    AND (ed.ProductCat IN ('3','4') AND ed.TMTID REGEXP '^9')\r\nGROUP BY\r\n    o.vn;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ผู้ได้รับยาสมุนไพร 32 รายวันนี้",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "จำนวนคนไข้"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "mode": "gradient",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนคน"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนครั้ง"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 113
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ส่งเคลมแล้ว"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 105
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "วัคซีน"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 125
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 8,
+        "y": 12
+      },
+      "id": 32,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "WITH vaccine_income AS (\r\n    SELECT\r\n        CASE\r\n            WHEN pv.export_vaccine_code IN ('106') THEN 'dTผู้ใหญ่'\r\n            WHEN pv.export_vaccine_code IN ('061', '073') THEN 'MMR'\r\n            WHEN pv.export_vaccine_code IN ('D21', 'D22', 'D23', 'D24') THEN 'DTP-HB+Hib'\r\n            WHEN pv.export_vaccine_code IN ('R11', 'R12', 'R21', 'R22', 'R23') THEN 'Rota'\r\n            WHEN pv.export_vaccine_code IN ('081', '082', '083', '084', '085') THEN 'OPV'\r\n            WHEN pv.export_vaccine_code IN ('034', '035') THEN ' DTP'\r\n            WHEN pv.export_vaccine_code IN ('J11', 'J12') THEN ' LAJE'\r\n            WHEN pv.export_vaccine_code IN ('815') THEN 'Full'\r\n            WHEN pv.export_vaccine_code IN ('023', '024') THEN 'dT ป.6'\r\n            WHEN pv.export_vaccine_code IN ('311', 'HPVC21', 'HPVC22', 'HPVC23', 'HPVV21', 'HPVV22',\r\n            'HPVV23', 'HPVG41', 'HPVG42', 'HPVG43', 'HPVG91', 'HPVG92', 'HPVG93') THEN ' HPV'\r\n            WHEN pv.export_vaccine_code IN ('I11', 'I12', 'I13') THEN ' IPV'\r\n            ELSE 'อื่นๆ'\r\n        END AS vaccine_group,\r\n        o.hn,\r\n        v1.vn\r\n    FROM\r\n        ovst_vaccine v1\r\n    INNER JOIN ovst o ON v1.vn = o.vn\r\n    INNER JOIN person_vaccine pv ON v1.person_vaccine_id = pv.person_vaccine_id\r\n    WHERE\r\n        o.vstdate BETWEEN $__timeFrom() AND $__timeTo()\r\n        AND pv.export_vaccine_code IN (\r\n            '106', '061', '073', 'D21', 'D22', 'D23', 'D24', 'R11', 'R12', 'R21', 'R22',\r\n            'R23', '081', '082', '083', '084', '085', '034', '035', 'J11', 'J12', '815',\r\n            '023', '024', '311', 'HPVC21', 'HPVC22', 'HPVC23', 'HPVV21', 'HPVV22', 'HPVV23',\r\n             'HPVG41', 'HPVG42', 'HPVG43', 'HPVG91', 'HPVG92', 'HPVG93', 'I11', 'I12', 'I13'\r\n        )\r\n),\r\ngrouped_by_vaccine AS (\r\n    SELECT\r\n        vaccine_group,\r\n        COUNT(DISTINCT hn) AS patient_count,\r\n        COUNT(vn) AS visit_count,\r\n        CASE\r\n            WHEN vaccine_group = 'วัคซีนผู้ใหญ่' THEN COUNT(DISTINCT hn) * 20\r\n            ELSE COUNT(vn) * 20\r\n        END AS estimated_income\r\n    FROM\r\n        vaccine_income\r\n    GROUP BY\r\n        vaccine_group\r\n),\r\nsummary AS (\r\n    SELECT\r\n        vaccine_group AS 'วัคซีน',\r\n        FORMAT(patient_count, 0) AS 'จำนวนคน',\r\n        FORMAT(visit_count, 0) AS 'จำนวนครั้ง',\r\n        FORMAT(estimated_income, 2) AS 'รายได้'\r\n    FROM\r\n        grouped_by_vaccine\r\n    WHERE\r\n        visit_count > 0\r\n    UNION ALL\r\n    SELECT\r\n        ' รวมทั้งหมด -',\r\n        FORMAT(SUM(patient_count), 0),\r\n        FORMAT(SUM(visit_count), 0),\r\n        FORMAT(SUM(estimated_income), 2)\r\n    FROM\r\n        grouped_by_vaccine\r\n)\r\nSELECT * FROM summary;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้ วัคซีน   วันนี้",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "จำนวนคนไข้"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "mode": "gradient",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 14
+      },
+      "id": 28,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "ประมาณการรายได้"
+          }
+        ]
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n 'ยาเม็ด' AS `รายการ`,\r\n COUNT(CASE WHEN d.nhso_adp_code = 'FP003_1' THEN 1 END) AS `ครั้ง`,\r\n SUM(CASE WHEN d.nhso_adp_code = 'FP003_1' THEN 120 ELSE 0 END) AS `รายได้`\r\nFROM opitemrece o\r\nLEFT JOIN drugitems d ON d.icode = o.icode\r\nLEFT JOIN pttype p ON p.pttype = o.pttype\r\nWHERE\r\n o.vstdate BETWEEN $__timeFrom() AND $__timeTo()\r\n AND p.hipdata_code IN ('UCS', 'WEL')\r\n AND d.nhso_adp_code = 'FP003_1'\r\n\r\nUNION ALL\r\n\r\nSELECT\r\n'ยาฉีด' AS `รายการ`,\r\n COUNT(CASE WHEN d.nhso_adp_code = 'FP003_4' THEN 1 END) AS `ครั้ง`,\r\n SUM(CASE WHEN d.nhso_adp_code = 'FP003_4' THEN 60 ELSE 0 END) AS `รายได้`\r\nFROM opitemrece o\r\nLEFT JOIN drugitems d ON d.icode = o.icode\r\nLEFT JOIN pttype p ON p.pttype = o.pttype\r\nWHERE\r\n o.vstdate BETWEEN $__timeFrom() AND $__timeTo()\r\n AND p.hipdata_code IN ('UCS', 'WEL')\r\n AND d.nhso_adp_code = 'FP003_4'\r\n \r\nUNION ALL\r\n \r\nSELECT\r\n 'รวมทั้งหมด' AS `รายการ`,\r\n COUNT(o.icode) AS `ครั้ง`,\r\n SUM(CASE WHEN d.nhso_adp_code = 'FP003_1' THEN 120\r\n WHEN d.nhso_adp_code = 'FP003_4' THEN 60\r\n ELSE 0 END) AS `รายได้`\r\nFROM opitemrece o\r\nLEFT JOIN drugitems d ON d.icode = o.icode\r\nLEFT JOIN pttype p ON p.pttype = o.pttype\r\nWHERE\r\n o.vstdate BETWEEN $__timeFrom() AND $__timeTo()\r\n AND p.hipdata_code IN ('UCS', 'WEL')\r\n AND d.nhso_adp_code IN ('FP003_1', 'FP003_4');",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้ ยาคุมกำเนิด  วันนี้",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "จำนวนคนไข้"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 14,
+        "x": 0,
+        "y": 18
+      },
+      "id": 7,
+      "options": {
+        "bgColor": "red",
+        "clockType": "24 hour",
+        "countdownSettings": {
+          "endCountdownTime": "2023-03-08T22:30:22+07:00",
+          "endText": "00:00:00",
+          "invalidValueText": "invalid value",
+          "noValueText": "no value found",
+          "queryCalculation": "last",
+          "source": "input"
+        },
+        "countupSettings": {
+          "beginCountupTime": "2023-03-08T22:30:22+07:00",
+          "beginText": "00:00:00",
+          "invalidValueText": "invalid value",
+          "noValueText": "no value found",
+          "queryCalculation": "last",
+          "source": "input"
+        },
+        "dateSettings": {
+          "dateFormat": "DD-MM-YYYY",
+          "fontSize": "30px",
+          "fontWeight": "normal",
+          "locale": "",
+          "showDate": true
+        },
+        "descriptionSettings": {
+          "descriptionText": "",
+          "fontSize": "12px",
+          "fontWeight": "normal",
+          "noValueText": "no description found",
+          "source": "none"
+        },
+        "fontMono": false,
+        "mode": "time",
+        "refresh": "sec",
+        "timeSettings": {
+          "fontSize": "30px",
+          "fontWeight": "normal"
+        },
+        "timezone": "",
+        "timezoneSettings": {
+          "fontSize": "12px",
+          "fontWeight": "normal",
+          "showTimezone": false,
+          "zoneFormat": "offsetAbbv"
+        }
+      },
+      "pluginVersion": "2.1.8",
+      "targets": [
+        {
+          "dataset": "eclaimdb",
+          "editorMode": "builder",
+          "format": "table",
+          "rawSql": "",
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "grafana-clock-panel"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "align": "right",
+            "cellOptions": {
+              "mode": "lcd",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              },
+              {
+                "color": "green",
+                "value": 100
+              },
+              {
+                "color": "#EF843C",
+                "value": 110
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 0,
+        "y": 21
+      },
+      "id": 30,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "ประมาณการรายได้"
+          }
+        ]
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    CAST(CONVERT(p.fname USING utf8) AS BINARY) AS \"ชื่อ\",  n.nhso_adp_code AS 'เคลือบฟลูออไรค์กลุ่มเสี่ยง'\r\nFROM vn_stat  v\r\nLEFT JOIN opitemrece o ON o.vn=v.vn\r\nLEFT JOIN nondrugitems n ON n.icode=o.icode\r\nLEFT JOIN patient  p  ON p.hn=v.hn\r\nWHERE  n.nhso_adp_code IN (15001) AND v.vstdate BETWEEN $__timeFrom() AND $__timeTo() \r\nGROUP BY v.vn",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ผู้ได้รับ เคลือบฟลูออไรค์กลุ่มเสี่ยง วันนี้",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "จำนวนคนไข้"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "mode": "gradient",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "inspect": false,
+            "width": 150
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 16,
+        "y": 22
+      },
+      "id": 29,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "ประมาณการรายได้"
+          }
+        ]
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "select o.vn,o.hn,ptname(o.hn,1) ptname\r\n,ce2be(o.vstdate) vstdate,date_format(o.vsttime,'%T') vsttime \r\n,ptt.pttype inscl,ptt.name pttypename\r\n,ac.authencode,v.pdx,group_concat(d.icode,' ',d.name) drug\r\n,group_concat(distinct d.nhso_adp_code order by d.nhso_adp_code) listname\r\n,sum(oo.sum_price) money_hosxp\r\n,v.discount_money,v.rcpt_money\r\n,v.income-v.discount_money-v.rcpt_money debit\r\nfrom ovst o\r\njoin vn_stat v on v.vn=o.vn\r\njoin patient pt on pt.hn=o.hn\r\njoin opitemrece oo on oo.vn=o.vn\r\njoin drugitems d on d.icode=oo.icode \r\nleft join s_drugitems s on s.icode=d.icode\r\nleft join pttype ptt on ptt.pttype=o.pttype\r\nleft join rcmdb.authencode ac on ac.vn=o.vn\r\nwhere o.vstdate BETWEEN $__timeFrom() AND $__timeTo() \r\nand (o.an='' or o.an is null)\r\nand pt.nationality='99' and pt.sex=2 and ptt.paidst='02'\r\nand (d.nhso_adp_code regexp'FP003_1' or s.nhso_adp_code regexp'FP003_1' )\r\ngroup by o.vn;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้ ยาคุมกำเนิด ",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "จำนวนคนไข้"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "สรุปจัดรายได้รายวัน",
+  "uid": "c55d82ff-1c9a-4a05-8624-9e485dbdcce6",
+  "version": 135
+}
