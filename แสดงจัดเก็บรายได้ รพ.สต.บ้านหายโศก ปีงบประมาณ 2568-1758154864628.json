@@ -1,0 +1,1353 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 6,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "bew90a82pgetce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 10
+              },
+              {
+                "color": "#EF843C",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "bew90a82pgetce"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(o.vn) as \"จำนวนคนไข้ทั้งหมด \" FROM \r\novst o\r\nWHERE   o.vstdate between '2024-10-01' and '2025-09-30'  \r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "จำนวน คนไข้นอก ที้งปีงบประมาณ",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 4,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<img src='https://ssdpcu.com/images/haisok_logo.jpg' width=\"150\" height=\"150\"'>\n\n",
+        "mode": "html"
+      },
+      "pluginVersion": "12.1.1",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "gauge"
+            },
+            "filterable": false,
+            "inspect": false,
+            "minWidth": 150,
+            "width": 130
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "สิทธ"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "json-view"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายได้"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนคน"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 97
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนครั้ง"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 111
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 8,
+        "x": 8,
+        "y": 0
+      },
+      "id": 30,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "ประมาณการรายได้"
+          }
+        ]
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    `ยาสมุนไพร`,\r\n    `จำนวนคน`,\r\n    `จำนวนครั้ง`,\r\n    `ประมาณการรายได้`\r\nFROM (\r\n    SELECT\r\n        CASE\r\n            WHEN sks_drug_code IN ('9372629','9415240','9429256') THEN 'ยาแก้ไอมะขามป้อม'\r\n            WHEN sks_drug_code IN ('9411015') THEN 'เถาวัลย์เปรียง'\r\n            WHEN sks_drug_code IN ('9093729','9025742') THEN 'ขมิ้นชัน'\r\n            WHEN sks_drug_code IN ('9411036','9401800') THEN 'ฟ้าทะลายโจร'\r\n            WHEN sks_drug_code IN ('9429273') THEN 'ลูกประคบ'\r\n            WHEN sks_drug_code IN ('9423623') THEN 'กลีเซอรีนพญายอ'\r\n            WHEN sks_drug_code IN ('9411275') THEN 'เพชรสังฆาต'\r\n            WHEN sks_drug_code IN ('9386723','9025735') THEN 'กล้วย'\r\n            WHEN sks_drug_code IN ('9098156') THEN 'เจลว่านหางจรเข้'\r\n        END AS `ยาสมุนไพร`,\r\n        COUNT(DISTINCT o.hn) AS `จำนวนคน`,\r\n        COUNT(op.icode) AS `จำนวนครั้ง`,\r\n        FORMAT(SUM(\r\n            CASE\r\n                WHEN d.sks_drug_code IN ('9372629','9415240','9429256') THEN 84\r\n                WHEN d.sks_drug_code IN ('9411015') THEN 60\r\n                WHEN d.sks_drug_code IN ('9093729','9025742') THEN 56\r\n                WHEN d.sks_drug_code IN ('9411036','9401800') THEN 92\r\n                WHEN d.sks_drug_code IN ('9429273') THEN 100\r\n                WHEN d.sks_drug_code IN ('9423623') THEN 33\r\n                WHEN d.sks_drug_code IN ('9411275') THEN 204\r\n                WHEN d.sks_drug_code IN ('9386723','9025735') THEN 32.5\r\n                WHEN d.sks_drug_code IN ('9098156') THEN 53\r\n                ELSE 0\r\n            END\r\n        ), 2) AS `ประมาณการรายได้`\r\n    FROM ovst o\r\n    LEFT JOIN opitemrece op ON op.vn = o.vn AND op.vstdate = o.vstdate\r\n    LEFT JOIN drugitems d ON d.icode = op.icode\r\n    LEFT JOIN pttype p ON p.pttype = o.pttype\r\n    WHERE\r\n        o.vstdate BETWEEN '2025-03-01' AND '2025-09-30'\r\n        AND d.sks_drug_code IN ('9372629','9415240','9429256','9411015','9093729',\r\n'9025742','9411036','9401800','9429273','9423623','9411275','9386723','9025735','9098156')\r\n        AND p.hipdata_code IN ('WEL', 'UCS')\r\n    GROUP BY\r\n        `ยาสมุนไพร`\r\n\r\n) AS subquery_results\r\nUNION ALL\r\nSELECT\r\n    'รวมทั้งหมด' AS `ยาสมุนไพร`,\r\n    COUNT(DISTINCT o.hn) AS `จำนวนคน`,\r\n    COUNT(op.icode) AS `จำนวนครั้ง`,\r\n    FORMAT(SUM(\r\n        CASE\r\n            WHEN d.sks_drug_code IN ('9372629','9415240','9429256') THEN 84\r\n            WHEN d.sks_drug_code IN ('9411015') THEN 60\r\n            WHEN d.sks_drug_code IN ('9093729','9025742') THEN 56\r\n            WHEN d.sks_drug_code IN ('9411036','9401800') THEN 92\r\n            WHEN d.sks_drug_code IN ('9429273') THEN 100\r\n            WHEN d.sks_drug_code IN ('9423623') THEN 33\r\n            WHEN d.sks_drug_code IN ('9411275') THEN 204\r\n            WHEN d.sks_drug_code IN ('9386723','9025735') THEN 32.5\r\n            WHEN d.sks_drug_code IN ('9098156') THEN 53\r\n            ELSE 0\r\n        END\r\n    ), 2) AS `ประมาณการรายได้`\r\nFROM ovst o\r\nLEFT JOIN opitemrece op ON op.vn = o.vn AND op.vstdate = o.vstdate\r\nLEFT JOIN drugitems d ON d.icode = op.icode\r\nLEFT JOIN pttype p ON p.pttype = o.pttype\r\nWHERE\r\n    o.vstdate BETWEEN '2025-03-01' AND '2025-09-30'\r\n    AND d.sks_drug_code IN ('9372629','9415240','9429256','9411015','9093729','9025742','9411036',\r\n'9401800','9429273','9423623','9411275','9386723','9025735','9098156')\r\n    AND p.hipdata_code IN ('WEL', 'UCS');",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้ยาสมุนไพร 32 รายการ เริ่ม 1มีค68  2568",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "filterable": false,
+            "inspect": false,
+            "minWidth": 150,
+            "width": 150
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "สิทธ"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "json-view"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายได้"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายการ"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 126
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนคน"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 114
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนครั้ง"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 99
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      },
+      "id": 29,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    CASE\r\n        WHEN h3.health_med_operation_item_code = '11' AND h3_check.has_20 = 1 THEN 'นวด + ประคบ'\r\n        WHEN h3.health_med_operation_item_code = '11' AND h3_check.has_20 = 0 THEN 'นวด'\r\n        WHEN h3.health_med_operation_item_code = '20' AND h3_check.has_11 = 0 THEN 'ประคบ'\r\n        WHEN h3.health_med_operation_item_code = '00' THEN 'อบสมุนไพร'\r\n    END AS `รายการ`,\r\n    COUNT(DISTINCT h2.hn) AS `จำนวนคน`,\r\n    COUNT(h3.health_med_operation_item_id) AS `จำนวนครั้ง`,\r\n    FORMAT(\r\n        SUM(\r\n            CASE\r\n                WHEN h3.health_med_operation_item_code = '11' AND h3_check.has_20 = 1 THEN 130.46\r\n                WHEN h3.health_med_operation_item_code = '11' AND h3_check.has_20 = 0 THEN 150\r\n                WHEN h3.health_med_operation_item_code = '20' AND h3_check.has_11 = 0 THEN 75\r\n                WHEN h3.health_med_operation_item_code = '00' THEN 75\r\n                ELSE 0\r\n            END\r\n        ), 2\r\n    ) AS `รายได้`\r\nFROM health_med_service_operation h1\r\nJOIN health_med_service h2 ON h2.health_med_service_id = h1.health_med_service_id\r\nLEFT JOIN health_med_operation_item h3 ON h3.health_med_operation_item_id = h1.health_med_operation_item_id\r\nLEFT JOIN vn_stat v ON h2.hn = v.hn AND h2.service_date = v.vstdate\r\nLEFT JOIN pttype p ON v.pttype = p.pttype\r\nLEFT JOIN (\r\n    SELECT\r\n        h2.health_med_service_id,\r\n        MAX(CASE WHEN h3.health_med_operation_item_code = '20' THEN 1 ELSE 0 END) AS has_20,\r\n        MAX(CASE WHEN h3.health_med_operation_item_code = '11' THEN 1 ELSE 0 END) AS has_11\r\n    FROM health_med_service_operation h1\r\n    JOIN health_med_service h2 ON h2.health_med_service_id = h1.health_med_service_id\r\n    JOIN health_med_operation_item h3 ON h3.health_med_operation_item_id = h1.health_med_operation_item_id\r\n    WHERE h2.service_date BETWEEN '2024-10-01' AND '2025-09-30'\r\n      AND h3.health_med_operation_item_code IN ('11', '20')\r\n    GROUP BY h2.health_med_service_id\r\n) AS h3_check ON h3_check.health_med_service_id = h2.health_med_service_id\r\nWHERE\r\n    h2.service_date BETWEEN '2024-10-01' AND '2025-09-30'\r\n    AND p.hipdata_code IN ('WEL', 'UCS')\r\n    AND h3.health_med_operation_item_code IN ('11', '20', '00')\r\nGROUP BY\r\n    `รายการ`\r\nHAVING `รายการ` IS NOT NULL\r\n\r\nUNION ALL\r\n\r\nSELECT\r\n    'รวมทั้งหมด' AS `รายการ`,\r\n    COUNT(DISTINCT h2.hn) AS `จำนวนคน`,\r\n    COUNT(h3.health_med_operation_item_id) AS `จำนวนครั้ง`,\r\n    FORMAT(\r\n        SUM(\r\n            CASE\r\n                WHEN h3.health_med_operation_item_code = '11' AND h3_check.has_20 = 1 THEN 130.46\r\n                WHEN h3.health_med_operation_item_code = '11' AND h3_check.has_20 = 0 THEN 150\r\n                WHEN h3.health_med_operation_item_code = '20' AND h3_check.has_11 = 0 THEN 75\r\n                WHEN h3.health_med_operation_item_code = '00' THEN 75\r\n                ELSE 0\r\n            END\r\n        ), 2\r\n    ) AS `รายได้`\r\nFROM health_med_service_operation h1\r\nJOIN health_med_service h2 ON h2.health_med_service_id = h1.health_med_service_id\r\nLEFT JOIN health_med_operation_item h3 ON h3.health_med_operation_item_id = h1.health_med_operation_item_id\r\nLEFT JOIN vn_stat v ON h2.hn = v.hn AND h2.service_date = v.vstdate\r\nLEFT JOIN pttype p ON v.pttype = p.pttype\r\nLEFT JOIN (\r\n    SELECT\r\n        h2.health_med_service_id,\r\n        MAX(CASE WHEN h3.health_med_operation_item_code = '20' THEN 1 ELSE 0 END) AS has_20,\r\n        MAX(CASE WHEN h3.health_med_operation_item_code = '11' THEN 1 ELSE 0 END) AS has_11\r\n    FROM health_med_service_operation h1\r\n    JOIN health_med_service h2 ON h2.health_med_service_id = h1.health_med_service_id\r\n    JOIN health_med_operation_item h3 ON h3.health_med_operation_item_id = h1.health_med_operation_item_id\r\n    WHERE h2.service_date BETWEEN '2024-10-01' AND '2025-09-30'\r\n      AND h3.health_med_operation_item_code IN ('11', '20')\r\n    GROUP BY h2.health_med_service_id\r\n) AS h3_check ON h3_check.health_med_service_id = h2.health_med_service_id\r\nWHERE\r\n    h2.service_date BETWEEN '2024-10-01' AND '2025-09-30'\r\n    AND p.hipdata_code IN ('WEL', 'UCS')\r\n    AND h3.health_med_operation_item_code IN ('11', '20', '00');",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": " รายได้จากนวด, ประคบ, อบ (เฉพาะสิทธิ WEL, UCS)  ปีงบประมาณ 2568",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "mode": "lcd",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "filterable": false,
+            "inspect": false,
+            "minWidth": 150,
+            "width": 130
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 100
+              },
+              {
+                "color": "green",
+                "value": 110
+              },
+              {
+                "color": "#E24D42",
+                "value": 120
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "สิทธ"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "json-view"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายได้"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนครั้ง"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 102
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 8,
+        "x": 0,
+        "y": 5
+      },
+      "id": 28,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    CASE\r\n        WHEN pttype IN ('O1','O2','O3','O4') THEN 'สิทธิจ่ายตรง'\r\n        WHEN pttype IN ('L1','L2','L3','L4','L5','L6','L9') THEN 'สิทธิ อปท.'\r\n        WHEN pttype IN ('S1','S2','S3','S4','S5','S6','S7','S8','15') THEN 'ปกส ในจังหวัด'\r\n        WHEN pttype IN ('36') THEN 'ปกส.นอกจังหวัด '\r\n        WHEN pttype IN ('Z2') THEN 'สิทธิ พรบ.'\r\n        WHEN pttype IN ('Z5') THEN 'ปกส ทันตกรรม.'\r\n        WHEN pttype IN ('51') THEN 'ต่างด้าว รพ.บร,'\r\n        WHEN pttype IN ('01','03','07','11','13','14','16','17','21','22','32','33','38','39',\r\n'40','41','43','44','45','46','50','59') THEN 'สิทธิ Walk in'\r\n        WHEN pttype IN ('E1','E3','E4','G1','G2','G3','G4','G5','G6','C1','C2','C3','C4','C5',\r\n'C6','B0','B1','B2','B3','B4','B5','B6','B7','B8','A0','A1','A2','A3','A4','A5','A6','A7','A8',\r\n'A9','P1','P2','P3','PB','PO','PV','P5','SB','SF','ST','Z1','Z5','00') THEN 'ชำระเงินเองเบิกได้'\r\n    END AS `สิทธิ`,\r\n    COUNT(DISTINCT hn) AS `จำนวนคน`,\r\n    COUNT(vn) AS `จำนวนครั้ง`,\r\n    FORMAT(\r\n        SUM(\r\n            CASE\r\n                WHEN pttype = '51' THEN income * 0.70\r\n                WHEN pttype IN ('S1','S2','S3','S4','S5','S6','S7','S8','15') THEN 100\r\n                ELSE income\r\n            END\r\n        ), 2\r\n    ) AS `รายได้`\r\nFROM vn_stat\r\nWHERE\r\n    vstdate BETWEEN '2024-10-01' AND '2025-09-30'\r\n    AND pttype IN ('51','O1','O2','O3','O4','L1','L2','L3','L4','L5','L6','L9','S1','S2','S3','S4','S5','S6',\r\n'S7','S8','15','36','Z2','01','03','07','11','13','14','16','17','21','22','32','33','38','39','40','41','43',\r\n'44','45','46','50','59','E1','E3','E4','G1','G2','G3','G4','G5','G6','C1','C2','C3','C4','C5','C6','B0','B1',\r\n'B2','B3','B4','B5','B6','B7','B8','A0','A1','A2','A3','A4','A5','A6','A7','A8','A9','P1','P2','P3','PB','PO',\r\n'PV','P5','SB','SF','ST','Z1','Z5','00')\r\nGROUP BY\r\n    `สิทธิ`\r\n\r\nUNION ALL\r\n\r\nSELECT\r\n    'รวมทั้งหมด' AS `สิทธิ`,\r\n    COUNT(DISTINCT hn) AS `จำนวนคน`,\r\n    COUNT(vn) AS `จำนวนครั้ง`,\r\n    FORMAT(\r\n        SUM(\r\n            CASE\r\n                WHEN pttype = '51' THEN income * 0.70\r\n                WHEN pttype IN ('S1','S2','S3','S4','S5','S6','S7','S8','15') THEN 100\r\n                ELSE income\r\n            END\r\n        ), 2\r\n    ) AS `รายได้`\r\nFROM vn_stat\r\nWHERE\r\n    vstdate BETWEEN '2024-10-01' AND '2025-09-30'\r\n    AND pttype IN ('51','O1','O2','O3','O4','L1','L2','L3','L4','L5','L6','L9','S1','S2','S3','S4','S5','S6','S7',\r\n'S8','15','36','Z2','01','03','07','11','13','14','16','17','21','22','32','33','38','39','40','41','43','44','45',\r\n'46','50','59','E1','E3','E4','G1','G2','G3','G4','G5','G6','C1','C2','C3','C4','C5','C6','B0','B1','B2','B3','B4',\r\n'B5','B6','B7','B8','A0','A1','A2','A3','A4','A5','A6','A7','A8','A9','P1','P2','P3','PB','PO','PV','P5','SB','SF','ST','Z1','00');",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้ ตามสิทธิผู้ป่วย  ปีงบประมาณ 2568",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "mode": "lcd",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "filterable": false,
+            "inspect": false,
+            "minWidth": 100,
+            "width": 150
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "yellow",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "yellow",
+                "value": 90
+              },
+              {
+                "color": "green",
+                "value": 100
+              },
+              {
+                "color": "#EF843C",
+                "value": 110
+              }
+            ]
+          },
+          "unit": "sishort"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "สิทธ"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "gauge"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายได้"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "group_name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 250
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนครั้ง"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 104
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "จำนวนคน"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 91
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "วัคซีน"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 115
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 8,
+        "x": 16,
+        "y": 6
+      },
+      "id": 33,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "WITH vaccine_income AS (\r\n    SELECT\r\n        CASE\r\n            WHEN pv.export_vaccine_code IN ('106') THEN 'dTผู้ใหญ่'\r\n            WHEN pv.export_vaccine_code IN ('061', '073') THEN 'MMR'\r\n            WHEN pv.export_vaccine_code IN ('D21', 'D22', 'D23', 'D24') THEN 'DTP-HB+Hib'\r\n            WHEN pv.export_vaccine_code IN ('R11', 'R12', 'R21', 'R22', 'R23') THEN 'Rota'\r\n            WHEN pv.export_vaccine_code IN ('081', '082', '083', '084', '085') THEN 'OPV'\r\n            WHEN pv.export_vaccine_code IN ('034', '035') THEN ' DTP'\r\n            WHEN pv.export_vaccine_code IN ('J11', 'J12') THEN ' LAJE'\r\n            WHEN pv.export_vaccine_code IN ('815') THEN 'Full'\r\n            WHEN pv.export_vaccine_code IN ('023', '024') THEN 'dT ป.6'\r\n            WHEN pv.export_vaccine_code IN ('311', 'HPVC21', 'HPVC22', 'HPVC23', 'HPVV21', 'HPVV22',\r\n            'HPVV23', 'HPVG41', 'HPVG42', 'HPVG43', 'HPVG91', 'HPVG92', 'HPVG93') THEN ' HPV'\r\n            WHEN pv.export_vaccine_code IN ('I11', 'I12', 'I13') THEN ' IPV'\r\n            ELSE 'อื่นๆ'\r\n        END AS vaccine_group,\r\n        o.hn,\r\n        v1.vn\r\n    FROM\r\n        ovst_vaccine v1\r\n    INNER JOIN ovst o ON v1.vn = o.vn\r\n    INNER JOIN person_vaccine pv ON v1.person_vaccine_id = pv.person_vaccine_id\r\n    WHERE\r\n        o.vstdate BETWEEN '2024-10-01' AND '2025-09-30'\r\n        AND pv.export_vaccine_code IN (\r\n            '106', '061', '073', 'D21', 'D22', 'D23', 'D24', 'R11', 'R12', 'R21', 'R22',\r\n            'R23', '081', '082', '083', '084', '085', '034', '035', 'J11', 'J12', '815',\r\n            '023', '024', '311', 'HPVC21', 'HPVC22', 'HPVC23', 'HPVV21', 'HPVV22', 'HPVV23',\r\n             'HPVG41', 'HPVG42', 'HPVG43', 'HPVG91', 'HPVG92', 'HPVG93', 'I11', 'I12', 'I13'\r\n        )\r\n),\r\ngrouped_by_vaccine AS (\r\n    SELECT\r\n        vaccine_group,\r\n        COUNT(DISTINCT hn) AS patient_count,\r\n        COUNT(vn) AS visit_count,\r\n        CASE\r\n            WHEN vaccine_group = 'วัคซีนผู้ใหญ่' THEN COUNT(DISTINCT hn) * 20\r\n            ELSE COUNT(vn) * 20\r\n        END AS estimated_income\r\n    FROM\r\n        vaccine_income\r\n    GROUP BY\r\n        vaccine_group\r\n),\r\nsummary AS (\r\n    SELECT\r\n        vaccine_group AS 'วัคซีน',\r\n        FORMAT(patient_count, 0) AS 'จำนวนคน',\r\n        FORMAT(visit_count, 0) AS 'จำนวนครั้ง',\r\n        FORMAT(estimated_income, 2) AS 'รายได้'\r\n    FROM\r\n        grouped_by_vaccine\r\n    WHERE\r\n        visit_count > 0\r\n    UNION ALL\r\n    SELECT\r\n        ' รวมทั้งหมด -',\r\n        FORMAT(SUM(patient_count), 0),\r\n        FORMAT(SUM(visit_count), 0),\r\n        FORMAT(SUM(estimated_income), 2)\r\n    FROM\r\n        grouped_by_vaccine\r\n)\r\nSELECT * FROM summary;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้ จาก  วัคซีน ปีงบประมาณ 2568",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "mode": "lcd",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "filterable": false,
+            "inspect": false,
+            "minWidth": 150,
+            "width": 150
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "สิทธ"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "json-view"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายได้"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายการ"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 124
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ครั้ง"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 113
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 7,
+        "x": 8,
+        "y": 13
+      },
+      "id": 32,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "(\r\n    SELECT\r\n        'ยาเม็ด' AS `รายการ`,\r\n        COUNT(CASE WHEN d.nhso_adp_code = 'FP003_1' THEN 1 END) AS `ครั้ง`,\r\n        SUM(CASE WHEN d.nhso_adp_code = 'FP003_1' THEN 120 ELSE 0 END) AS `รายได้`\r\n    FROM opitemrece o\r\n    LEFT JOIN drugitems d ON d.icode = o.icode\r\n    LEFT JOIN pttype p ON p.pttype = o.pttype\r\n    WHERE\r\n        o.vstdate BETWEEN '2024-10-01' AND '2025-09-30'\r\n        AND p.hipdata_code IN ('UCS', 'WEL')\r\n        AND d.nhso_adp_code = 'FP003_1'\r\n)\r\n\r\nUNION ALL\r\n\r\n(\r\n    SELECT\r\n        'ยาฉีด' AS `รายการ`,\r\n        COUNT(CASE WHEN d.nhso_adp_code = 'FP003_4' THEN 1 END) AS `ครั้ง`,\r\n        SUM(CASE WHEN d.nhso_adp_code = 'FP003_4' THEN 60 ELSE 0 END) AS `รายได้`\r\n    FROM opitemrece o\r\n    LEFT JOIN drugitems d ON d.icode = o.icode\r\n    LEFT JOIN pttype p ON p.pttype = o.pttype\r\n    WHERE\r\n        o.vstdate BETWEEN '2024-10-01' AND '2025-09-30'\r\n        AND p.hipdata_code IN ('UCS', 'WEL')\r\n        AND d.nhso_adp_code = 'FP003_4'\r\n)\r\n\r\nUNION ALL\r\n\r\n(\r\n    SELECT\r\n        'รวมทั้งหมด' AS `รายการ`,\r\n        COUNT(d.nhso_adp_code) AS `ครั้ง`,\r\n        SUM(CASE\r\n            WHEN d.nhso_adp_code = 'FP003_1' THEN 120\r\n            WHEN d.nhso_adp_code = 'FP003_4' THEN 60\r\n        END) AS `รายได้`\r\n    FROM opitemrece o\r\n    LEFT JOIN drugitems d ON d.icode = o.icode\r\n    LEFT JOIN pttype p ON p.pttype = o.pttype\r\n    WHERE\r\n        o.vstdate BETWEEN '2024-10-01' AND '2025-09-30'\r\n        AND p.hipdata_code IN ('UCS', 'WEL')\r\n        AND d.nhso_adp_code IN ('FP003_1', 'FP003_4')\r\n);",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้ จาก  ยาคุมกำเนิด ปีงบประมาณ 2568",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "mode": "lcd",
+              "type": "gauge",
+              "valueDisplayMode": "color"
+            },
+            "filterable": false,
+            "inspect": false,
+            "minWidth": 150,
+            "width": 150
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "สิทธ"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "json-view"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายได้"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายการ"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "คน"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 122
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 7,
+        "x": 0,
+        "y": 17
+      },
+      "id": 31,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "zYrDyHx4z"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    CASE lo.lab_items_code\r\n        WHEN '4020' THEN 'ตับอักเสบB'\r\n        WHEN '4022' THEN 'ตับอักเสบC'\r\n        ELSE 'รวมทั้งหมด'\r\n    END AS 'รายการ',\r\n    COUNT(DISTINCT o.hn) AS 'คน',\r\n    COUNT(o.vn) AS 'ครั้ง',\r\n    COUNT(o.vn) * 50 AS 'รายได้'\r\nFROM\r\n    ovst o\r\nLEFT JOIN\r\n    lab_head lh ON lh.vn = o.vn\r\nLEFT JOIN\r\n    lab_order lo ON lo.lab_order_number = lh.lab_order_number\r\nWHERE\r\n    lo.lab_items_code IN ('4020', '4022')\r\n    AND o.vstdate BETWEEN '2024-10-01' AND '2025-09-30'\r\nGROUP BY\r\n    lo.lab_items_code WITH ROLLUP;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้ จาก HPV HB HC ปีงบประมาณ 2568",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "filterable": false,
+            "inspect": false,
+            "minWidth": 100,
+            "width": 150
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "yellow",
+                "value": 90
+              },
+              {
+                "color": "yellow",
+                "value": 100
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "สิทธ"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "gauge",
+                  "valueDisplayMode": "text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายได้"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "group_name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 315
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "รายการ"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 273
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ครั้ง"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 82
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "คน"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 63
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 16,
+        "y": 20
+      },
+      "id": 34,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "dataset": "eclaimdb",
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "(\r\n    -- รายละเอียดรายบริการคัดกรอง/ส่งเสริมสุขภาพ (ADP)\r\n    SELECT\r\n        CASE\r\n            WHEN n.nhso_adp_code = '14001' THEN 'บริการยาเสริมธาตุเหล็ก' \r\n            WHEN n.nhso_adp_code = '12004' THEN 'บริการเจาะเเลือดตรวจ TCหรือHDL'\r\n            WHEN n.nhso_adp_code = '13001' THEN 'ตรวจคัดกรองโลหิตจาง CBC,HCT หญิงอายุ 13-24 ปี'\r\n            WHEN n.nhso_adp_code = '15001' THEN 'บริการเคลือบฟลูออรไค์กลุ่มเสี่ยง 25-59 ปี'\r\n            WHEN n.nhso_adp_code = '30014' THEN 'คทดสอบหญิงตั้งครรภ์'\r\n            WHEN n.nhso_adp_code = '30015' THEN 'บริการตรวจหลังคลอด'\r\n            WHEN n.nhso_adp_code = '30016' THEN 'จ่ายยาtriferdine หญิงหลังคลอด'\r\n            ELSE 'ไม่ระบุ'\r\n        END AS 'รายการ',\r\n        FORMAT(COUNT(DISTINCT v.hn), 0) AS 'คน',\r\n        FORMAT(COUNT(DISTINCT v.vn), 0) AS 'ครั้ง',\r\n        FORMAT(SUM(\r\n            CASE\r\n                WHEN n.nhso_adp_code = '14001' THEN 80\r\n                WHEN n.nhso_adp_code = '12003' THEN 40\r\n                WHEN n.nhso_adp_code = '12004' THEN 160\r\n                WHEN n.nhso_adp_code = '13001' THEN 65\r\n                WHEN n.nhso_adp_code = '15001' THEN 100\r\n                WHEN n.nhso_adp_code = '30014' THEN 75\r\n                WHEN n.nhso_adp_code = '30015' THEN 150\r\n                WHEN n.nhso_adp_code = '30016' THEN 135\r\n                WHEN n.nhso_adp_code = '9001' THEN 500\r\n                WHEN n.nhso_adp_code = '9002' THEN 2500\r\n                WHEN n.nhso_adp_code = '9004' THEN 600\r\n                WHEN n.nhso_adp_code = '9005' THEN 60\r\n                ELSE 0\r\n            END\r\n        ), 2) AS 'รายได้'\r\n    FROM vn_stat v\r\n    JOIN opitemrece o ON o.vn = v.vn\r\n    JOIN nondrugitems n ON n.icode = o.icode\r\n    WHERE v.vstdate BETWEEN '2024-10-01' AND '2025-09-30'\r\n      AND n.nhso_adp_code IN ('14001', '12003', '12004', '13001', '15001', '30014',\r\n       '30015', '30016', '9001', '9002', '9004', '9005')\r\n    GROUP BY n.nhso_adp_code\r\n    HAVING COUNT(DISTINCT v.vn) > 0\r\n)\r\nUNION ALL\r\n(\r\n    -- สรุปรวมของบริการคัดกรอง/ส่งเสริมสุขภาพ (ADP) (แสดงถ้ามีข้อมูลรวม)\r\n    SELECT\r\n        'รวมคัดกรอง/ส่งเสริมสุขภาพ (ADP)' AS group_name,\r\n        FORMAT(COUNT(DISTINCT v.hn), 0) AS patient_count,\r\n        FORMAT(COUNT(DISTINCT v.vn), 0) AS visit_count,\r\n        FORMAT(SUM(\r\n            CASE\r\n                WHEN n.nhso_adp_code = '14001' THEN 80\r\n                WHEN n.nhso_adp_code = '12003' THEN 40\r\n                WHEN n.nhso_adp_code = '12004' THEN 160\r\n                WHEN n.nhso_adp_code = '13001' THEN 65\r\n                WHEN n.nhso_adp_code = '15001' THEN 100\r\n                WHEN n.nhso_adp_code = '30014' THEN 75\r\n                WHEN n.nhso_adp_code = '30015' THEN 150\r\n                WHEN n.nhso_adp_code = '30016' THEN 135\r\n                WHEN n.nhso_adp_code = '9001' THEN 500\r\n                WHEN n.nhso_adp_code = '9002' THEN 2500\r\n                WHEN n.nhso_adp_code = '9004' THEN 600\r\n                WHEN n.nhso_adp_code = '9005' THEN 60\r\n                ELSE 0\r\n            END\r\n        ), 2) AS estimated_income\r\n    FROM vn_stat v\r\n    JOIN opitemrece o ON o.vn = v.vn\r\n    JOIN nondrugitems n ON n.icode = o.icode\r\n    WHERE v.vstdate BETWEEN '2024-10-01' AND '2025-09-30'\r\n      AND n.nhso_adp_code IN ('14001', '12003', '12004', '13001', '15001', '30014', '30015',\r\n       '30016', '9001', '9002', '9004', '9005')\r\n    HAVING COUNT(DISTINCT v.vn) > 0\r\n)",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              },
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "ประมาณการรายได้จากบริการคัดกรอง/ส่งเสริมสุขภาพ (ADP) ปีงบประมาณ 2568",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "few8zu8hv8um8c"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 13,
+        "x": 0,
+        "y": 22
+      },
+      "id": 7,
+      "options": {
+        "bgColor": "red",
+        "clockType": "24 hour",
+        "countdownSettings": {
+          "endCountdownTime": "2023-03-08T22:30:22+07:00",
+          "endText": "00:00:00",
+          "invalidValueText": "invalid value",
+          "noValueText": "no value found",
+          "queryCalculation": "last",
+          "source": "input"
+        },
+        "countupSettings": {
+          "beginCountupTime": "2023-03-08T22:30:22+07:00",
+          "beginText": "00:00:00",
+          "invalidValueText": "invalid value",
+          "noValueText": "no value found",
+          "queryCalculation": "last",
+          "source": "input"
+        },
+        "dateSettings": {
+          "dateFormat": "DD-MM-YYYY",
+          "fontSize": "30px",
+          "fontWeight": "normal",
+          "locale": "",
+          "showDate": true
+        },
+        "descriptionSettings": {
+          "descriptionText": "",
+          "fontSize": "12px",
+          "fontWeight": "normal",
+          "noValueText": "no description found",
+          "source": "none"
+        },
+        "fontMono": false,
+        "mode": "time",
+        "refresh": "sec",
+        "timeSettings": {
+          "fontSize": "30px",
+          "fontWeight": "normal"
+        },
+        "timezone": "",
+        "timezoneSettings": {
+          "fontSize": "12px",
+          "fontWeight": "normal",
+          "showTimezone": false,
+          "zoneFormat": "offsetAbbv"
+        }
+      },
+      "pluginVersion": "2.1.8",
+      "targets": [
+        {
+          "dataset": "eclaimdb",
+          "editorMode": "builder",
+          "format": "table",
+          "rawSql": "",
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "grafana-clock-panel"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "แสดงจัดเก็บรายได้ รพ.สต.บ้านหายโศก ปีงบประมาณ 2568",
+  "uid": "0fdcab41-fb49-4d10-b99a-818a8ce9d480",
+  "version": 134
+}
